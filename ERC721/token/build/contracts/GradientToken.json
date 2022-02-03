@@ -1,0 +1,2445 @@
+{
+  "contractName": "GradientToken",
+  "abi": [
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "_owner",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "_approved",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "_tokenId",
+          "type": "uint256"
+        }
+      ],
+      "name": "Approval",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "_from",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "_to",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "_tokenId",
+          "type": "uint256"
+        }
+      ],
+      "name": "Transfer",
+      "type": "event"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_to",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_tokenId",
+          "type": "uint256"
+        }
+      ],
+      "name": "_mint",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_owner",
+          "type": "address"
+        }
+      ],
+      "name": "balanceOf",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "name": "gradients",
+      "outputs": [
+        {
+          "internalType": "string",
+          "name": "outer",
+          "type": "string"
+        },
+        {
+          "internalType": "string",
+          "name": "inner",
+          "type": "string"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "name",
+      "outputs": [
+        {
+          "internalType": "string",
+          "name": "",
+          "type": "string"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "owner",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_tokenId",
+          "type": "uint256"
+        }
+      ],
+      "name": "ownerOf",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "symbol",
+      "outputs": [
+        {
+          "internalType": "string",
+          "name": "",
+          "type": "string"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_owner",
+          "type": "address"
+        }
+      ],
+      "name": "tokensOf",
+      "outputs": [
+        {
+          "internalType": "uint256[]",
+          "name": "",
+          "type": "uint256[]"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "internalType": "string",
+          "name": "_outer",
+          "type": "string"
+        },
+        {
+          "internalType": "string",
+          "name": "_inner",
+          "type": "string"
+        }
+      ],
+      "name": "mint",
+      "outputs": [],
+      "payable": true,
+      "stateMutability": "payable",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_gradientId",
+          "type": "uint256"
+        }
+      ],
+      "name": "getGradient",
+      "outputs": [
+        {
+          "internalType": "string",
+          "name": "outer",
+          "type": "string"
+        },
+        {
+          "internalType": "string",
+          "name": "inner",
+          "type": "string"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.5.16+commit.9c3226ce\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"_owner\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"_approved\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"_tokenId\",\"type\":\"uint256\"}],\"name\":\"Approval\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"_from\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"_to\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"_tokenId\",\"type\":\"uint256\"}],\"name\":\"Transfer\",\"type\":\"event\"},{\"constant\":false,\"inputs\":[{\"internalType\":\"address\",\"name\":\"_to\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"_tokenId\",\"type\":\"uint256\"}],\"name\":\"_mint\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"internalType\":\"address\",\"name\":\"_owner\",\"type\":\"address\"}],\"name\":\"balanceOf\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_gradientId\",\"type\":\"uint256\"}],\"name\":\"getGradient\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"outer\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"inner\",\"type\":\"string\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"gradients\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"outer\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"inner\",\"type\":\"string\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"internalType\":\"string\",\"name\":\"_outer\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"_inner\",\"type\":\"string\"}],\"name\":\"mint\",\"outputs\":[],\"payable\":true,\"stateMutability\":\"payable\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"name\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"owner\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_tokenId\",\"type\":\"uint256\"}],\"name\":\"ownerOf\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"symbol\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"internalType\":\"address\",\"name\":\"_owner\",\"type\":\"address\"}],\"name\":\"tokensOf\",\"outputs\":[{\"internalType\":\"uint256[]\",\"name\":\"\",\"type\":\"uint256[]\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"project:/contracts/GradientToken.sol\":\"GradientToken\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/ERC721.sol\":{\"keccak256\":\"0x928706a5de5fb56c83280a94b235dacd2da8eaa7e96c7136e1da86d818beb10b\",\"urls\":[\"bzz-raw://b5481ad2ee689b7bf7cc568bb08445ab3ca06985f507bff2dac271c99ec57be5\",\"dweb:/ipfs/Qme3CCUPx454mxaSkJWsaFrAdugcJuxfNJYMZX8KMmVAGT\"]},\"project:/contracts/ERC721Token.sol\":{\"keccak256\":\"0x8a344e255ef754dbe5f8306a5c79fe36d9ff8dede9d07efafb403de5139c493b\",\"urls\":[\"bzz-raw://5e1cfd62dcde996c43b7fba4549c244649f398c88197c05808c899c5c43198e2\",\"dweb:/ipfs/QmZsphNcbEU6eGE1HQBwbzbGUksdmmyrmAacqn9PJEXsAW\"]},\"project:/contracts/GradientToken.sol\":{\"keccak256\":\"0xab0a1204b51d9531ec71aebfa04141f4e06027a54a7827fb1ff58ee7459df10b\",\"urls\":[\"bzz-raw://cd2bc86a0debbd72f769c41e167da4a1b679c3a4761cc8b9a3d85e3dddfe972a\",\"dweb:/ipfs/QmPMhQt97766awtxVkiKrJYHkBKJXNPXv73Ww4VJFbihE3\"]},\"project:/contracts/Ownable.sol\":{\"keccak256\":\"0x51b38b067cd8b02e7a598158a7b5eb04525be52edb34bae59f92825ed4f34b96\",\"urls\":[\"bzz-raw://61b263c5fdc957d706e71bd0edcbfca9696b9164430c3313f0f0c890741bd929\",\"dweb:/ipfs/QmXpgrwEiVkmDRzi22zPgxLLzNXoZsRBXMWxKyJEzao6XR\"]},\"project:/contracts/SafeMath.sol\":{\"keccak256\":\"0x4a56a6564b06f8b5f1f61c7546713a11939b8b3d56e51fbfe9df0306b7c5621d\",\"urls\":[\"bzz-raw://7f7fd701bf9c3aea2a2b9e21f836ae1eff7bb4243a6cbdbbfca18c063c1af915\",\"dweb:/ipfs/QmTk3JFCQJMxQaxG5UhD23D4UGPqeLyX3Yhs2ZFLWoKe9j\"]}},\"version\":1}",
+  "bytecode": "0x608060405233600260006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550611019806100546000396000f3fe6080604052600436106100915760003560e01c80638aa0fdad116100595780638aa0fdad146103075780638da5cb5b1461045957806395d89b41146104b0578063a7c5ecf614610540578063d927f09e1461066057610091565b806306fdde03146100965780634e6ec247146101265780635a3f2672146101815780636352211e1461022757806370a08231146102a2575b600080fd5b3480156100a257600080fd5b506100ab610780565b6040518080602001828103825283818151815260200191508051906020019080838360005b838110156100eb5780820151818401526020810190506100d0565b50505050905090810190601f1680156101185780820380516001836020036101000a031916815260200191505b509250505060405180910390f35b34801561013257600080fd5b5061017f6004803603604081101561014957600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff169060200190929190803590602001909291905050506107b9565b005b34801561018d57600080fd5b506101d0600480360360208110156101a457600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff169060200190929190505050610982565b6040518080602001828103825283818151815260200191508051906020019060200280838360005b838110156102135780820151818401526020810190506101f8565b505050509050019250505060405180910390f35b34801561023357600080fd5b506102606004803603602081101561024a57600080fd5b8101908080359060200190929190505050610a19565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b3480156102ae57600080fd5b506102f1600480360360208110156102c557600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff169060200190929190505050610a94565b6040518082815260200191505060405180910390f35b6104576004803603604081101561031d57600080fd5b810190808035906020019064010000000081111561033a57600080fd5b82018360208201111561034c57600080fd5b8035906020019184600183028401116401000000008311171561036e57600080fd5b91908080601f016020809104026020016040519081016040528093929190818152602001838380828437600081840152601f19601f820116905080830192505050505050509192919290803590602001906401000000008111156103d157600080fd5b8201836020820111156103e357600080fd5b8035906020019184600183028401116401000000008311171561040557600080fd5b91908080601f016020809104026020016040519081016040528093929190818152602001838380828437600081840152601f19601f820116905080830192505050505050509192919290505050610ae0565b005b34801561046557600080fd5b5061046e610bda565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b3480156104bc57600080fd5b506104c5610c00565b6040518080602001828103825283818151815260200191508051906020019080838360005b838110156105055780820151818401526020810190506104ea565b50505050905090810190601f1680156105325780820380516001836020036101000a031916815260200191505b509250505060405180910390f35b34801561054c57600080fd5b506105796004803603602081101561056357600080fd5b8101908080359060200190929190505050610c39565b604051808060200180602001838103835285818151815260200191508051906020019080838360005b838110156105bd5780820151818401526020810190506105a2565b50505050905090810190601f1680156105ea5780820380516001836020036101000a031916815260200191505b50838103825284818151815260200191508051906020019080838360005b83811015610623578082015181840152602081019050610608565b50505050905090810190601f1680156106505780820380516001836020036101000a031916815260200191505b5094505050505060405180910390f35b34801561066c57600080fd5b506106996004803603602081101561068357600080fd5b8101908080359060200190929190505050610d9a565b604051808060200180602001838103835285818151815260200191508051906020019080838360005b838110156106dd5780820151818401526020810190506106c2565b50505050905090810190601f16801561070a5780820380516001836020036101000a031916815260200191505b50838103825284818151815260200191508051906020019080838360005b83811015610743578082015181840152602081019050610728565b50505050905090810190601f1680156107705780820380516001836020036101000a031916815260200191505b5094505050505060405180910390f35b6040518060400160405280600d81526020017f4772616469656e74546f6b656e0000000000000000000000000000000000000081525081565b600073ffffffffffffffffffffffffffffffffffffffff168273ffffffffffffffffffffffffffffffffffffffff1614156107f357600080fd5b600073ffffffffffffffffffffffffffffffffffffffff1660008083815260200190815260200160002060009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff161461085e57600080fd5b8160008083815260200190815260200160002060006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550600160008373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020019081526020016000208190806001815401808255809150509060018203906000526020600020016000909192909190915055508173ffffffffffffffffffffffffffffffffffffffff16600073ffffffffffffffffffffffffffffffffffffffff167fddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef836040518082815260200191505060405180910390a35050565b6060600160008373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020805480602002602001604051908101604052809291908181526020018280548015610a0d57602002820191906000526020600020905b8154815260200190600101908083116109f9575b50505050509050919050565b60008060008084815260200190815260200160002060009054906101000a900473ffffffffffffffffffffffffffffffffffffffff169050600073ffffffffffffffffffffffffffffffffffffffff168173ffffffffffffffffffffffffffffffffffffffff161415610a8b57600080fd5b80915050919050565b6000600160008373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020805490509050919050565b600260009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff1614610b3a57600080fd5b610b42610f25565b604051806040016040528084815260200183815250905060006001600383908060018154018082558091505090600182039060005260206000209060020201600090919290919091506000820151816000019080519060200190610ba7929190610f3f565b506020820151816001019080519060200190610bc4929190610f3f565b505050039050610bd433826107b9565b50505050565b600260009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b6040518060400160405280600481526020017f477261640000000000000000000000000000000000000000000000000000000081525081565b60038181548110610c4657fe5b9060005260206000209060020201600091509050806000018054600181600116156101000203166002900480601f016020809104026020016040519081016040528092919081815260200182805460018160011615610100020316600290048015610cf25780601f10610cc757610100808354040283529160200191610cf2565b820191906000526020600020905b815481529060010190602001808311610cd557829003601f168201915b505050505090806001018054600181600116156101000203166002900480601f016020809104026020016040519081016040528092919081815260200182805460018160011615610100020316600290048015610d905780601f10610d6557610100808354040283529160200191610d90565b820191906000526020600020905b815481529060010190602001808311610d7357829003601f168201915b5050505050905082565b606080610da5610f25565b60038481548110610db257fe5b9060005260206000209060020201604051806040016040529081600082018054600181600116156101000203166002900480601f016020809104026020016040519081016040528092919081815260200182805460018160011615610100020316600290048015610e645780601f10610e3957610100808354040283529160200191610e64565b820191906000526020600020905b815481529060010190602001808311610e4757829003601f168201915b50505050508152602001600182018054600181600116156101000203166002900480601f016020809104026020016040519081016040528092919081815260200182805460018160011615610100020316600290048015610f065780601f10610edb57610100808354040283529160200191610f06565b820191906000526020600020905b815481529060010190602001808311610ee957829003601f168201915b5050505050815250509050806000015192508060200151915050915091565b604051806040016040528060608152602001606081525090565b828054600181600116156101000203166002900490600052602060002090601f016020900481019282601f10610f8057805160ff1916838001178555610fae565b82800160010185558215610fae579182015b82811115610fad578251825591602001919060010190610f92565b5b509050610fbb9190610fbf565b5090565b610fe191905b80821115610fdd576000816000905550600101610fc5565b5090565b9056fea265627a7a72315820959512fe2fb9e98bcd1e8659cd0e6b0ad81729d7c41b8a847f2f8ceaa446b76264736f6c63430005100032",
+  "deployedBytecode": "0x6080604052600436106100915760003560e01c80638aa0fdad116100595780638aa0fdad146103075780638da5cb5b1461045957806395d89b41146104b0578063a7c5ecf614610540578063d927f09e1461066057610091565b806306fdde03146100965780634e6ec247146101265780635a3f2672146101815780636352211e1461022757806370a08231146102a2575b600080fd5b3480156100a257600080fd5b506100ab610780565b6040518080602001828103825283818151815260200191508051906020019080838360005b838110156100eb5780820151818401526020810190506100d0565b50505050905090810190601f1680156101185780820380516001836020036101000a031916815260200191505b509250505060405180910390f35b34801561013257600080fd5b5061017f6004803603604081101561014957600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff169060200190929190803590602001909291905050506107b9565b005b34801561018d57600080fd5b506101d0600480360360208110156101a457600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff169060200190929190505050610982565b6040518080602001828103825283818151815260200191508051906020019060200280838360005b838110156102135780820151818401526020810190506101f8565b505050509050019250505060405180910390f35b34801561023357600080fd5b506102606004803603602081101561024a57600080fd5b8101908080359060200190929190505050610a19565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b3480156102ae57600080fd5b506102f1600480360360208110156102c557600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff169060200190929190505050610a94565b6040518082815260200191505060405180910390f35b6104576004803603604081101561031d57600080fd5b810190808035906020019064010000000081111561033a57600080fd5b82018360208201111561034c57600080fd5b8035906020019184600183028401116401000000008311171561036e57600080fd5b91908080601f016020809104026020016040519081016040528093929190818152602001838380828437600081840152601f19601f820116905080830192505050505050509192919290803590602001906401000000008111156103d157600080fd5b8201836020820111156103e357600080fd5b8035906020019184600183028401116401000000008311171561040557600080fd5b91908080601f016020809104026020016040519081016040528093929190818152602001838380828437600081840152601f19601f820116905080830192505050505050509192919290505050610ae0565b005b34801561046557600080fd5b5061046e610bda565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b3480156104bc57600080fd5b506104c5610c00565b6040518080602001828103825283818151815260200191508051906020019080838360005b838110156105055780820151818401526020810190506104ea565b50505050905090810190601f1680156105325780820380516001836020036101000a031916815260200191505b509250505060405180910390f35b34801561054c57600080fd5b506105796004803603602081101561056357600080fd5b8101908080359060200190929190505050610c39565b604051808060200180602001838103835285818151815260200191508051906020019080838360005b838110156105bd5780820151818401526020810190506105a2565b50505050905090810190601f1680156105ea5780820380516001836020036101000a031916815260200191505b50838103825284818151815260200191508051906020019080838360005b83811015610623578082015181840152602081019050610608565b50505050905090810190601f1680156106505780820380516001836020036101000a031916815260200191505b5094505050505060405180910390f35b34801561066c57600080fd5b506106996004803603602081101561068357600080fd5b8101908080359060200190929190505050610d9a565b604051808060200180602001838103835285818151815260200191508051906020019080838360005b838110156106dd5780820151818401526020810190506106c2565b50505050905090810190601f16801561070a5780820380516001836020036101000a031916815260200191505b50838103825284818151815260200191508051906020019080838360005b83811015610743578082015181840152602081019050610728565b50505050905090810190601f1680156107705780820380516001836020036101000a031916815260200191505b5094505050505060405180910390f35b6040518060400160405280600d81526020017f4772616469656e74546f6b656e0000000000000000000000000000000000000081525081565b600073ffffffffffffffffffffffffffffffffffffffff168273ffffffffffffffffffffffffffffffffffffffff1614156107f357600080fd5b600073ffffffffffffffffffffffffffffffffffffffff1660008083815260200190815260200160002060009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff161461085e57600080fd5b8160008083815260200190815260200160002060006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550600160008373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020019081526020016000208190806001815401808255809150509060018203906000526020600020016000909192909190915055508173ffffffffffffffffffffffffffffffffffffffff16600073ffffffffffffffffffffffffffffffffffffffff167fddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef836040518082815260200191505060405180910390a35050565b6060600160008373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020805480602002602001604051908101604052809291908181526020018280548015610a0d57602002820191906000526020600020905b8154815260200190600101908083116109f9575b50505050509050919050565b60008060008084815260200190815260200160002060009054906101000a900473ffffffffffffffffffffffffffffffffffffffff169050600073ffffffffffffffffffffffffffffffffffffffff168173ffffffffffffffffffffffffffffffffffffffff161415610a8b57600080fd5b80915050919050565b6000600160008373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020805490509050919050565b600260009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff1614610b3a57600080fd5b610b42610f25565b604051806040016040528084815260200183815250905060006001600383908060018154018082558091505090600182039060005260206000209060020201600090919290919091506000820151816000019080519060200190610ba7929190610f3f565b506020820151816001019080519060200190610bc4929190610f3f565b505050039050610bd433826107b9565b50505050565b600260009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b6040518060400160405280600481526020017f477261640000000000000000000000000000000000000000000000000000000081525081565b60038181548110610c4657fe5b9060005260206000209060020201600091509050806000018054600181600116156101000203166002900480601f016020809104026020016040519081016040528092919081815260200182805460018160011615610100020316600290048015610cf25780601f10610cc757610100808354040283529160200191610cf2565b820191906000526020600020905b815481529060010190602001808311610cd557829003601f168201915b505050505090806001018054600181600116156101000203166002900480601f016020809104026020016040519081016040528092919081815260200182805460018160011615610100020316600290048015610d905780601f10610d6557610100808354040283529160200191610d90565b820191906000526020600020905b815481529060010190602001808311610d7357829003601f168201915b5050505050905082565b606080610da5610f25565b60038481548110610db257fe5b9060005260206000209060020201604051806040016040529081600082018054600181600116156101000203166002900480601f016020809104026020016040519081016040528092919081815260200182805460018160011615610100020316600290048015610e645780601f10610e3957610100808354040283529160200191610e64565b820191906000526020600020905b815481529060010190602001808311610e4757829003601f168201915b50505050508152602001600182018054600181600116156101000203166002900480601f016020809104026020016040519081016040528092919081815260200182805460018160011615610100020316600290048015610f065780601f10610edb57610100808354040283529160200191610f06565b820191906000526020600020905b815481529060010190602001808311610ee957829003601f168201915b5050505050815250509050806000015192508060200151915050915091565b604051806040016040528060608152602001606081525090565b828054600181600116156101000203166002900490600052602060002090601f016020900481019282601f10610f8057805160ff1916838001178555610fae565b82800160010185558215610fae579182015b82811115610fad578251825591602001919060010190610f92565b5b509050610fbb9190610fbf565b5090565b610fe191905b80821115610fdd576000816000905550600101610fc5565b5090565b9056fea265627a7a72315820959512fe2fb9e98bcd1e8659cd0e6b0ad81729d7c41b8a847f2f8ceaa446b76264736f6c63430005100032",
+  "sourceMap": "86:770:2:-;;;119:10:4;111:5;;:18;;;;;;;;;;;;;;;;;;86:770:2;;;;;;",
+  "deployedSourceMap": "86:770:2:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;140:45;;8:9:-1;5:2;;;30:1;27;20:12;5:2;140:45:2;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;23:1:-1;8:100;33:3;30:1;27:10;8:100;;;99:1;94:3;90:11;84:18;80:1;75:3;71:11;64:39;52:2;49:1;45:10;40:15;;8:100;;;12:14;140:45:2;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;267:287:1;;8:9:-1;5:2;;;30:1;27;20:12;5:2;267:287:1;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;267:287:1;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;885:121;;8:9:-1;5:2;;;30:1;27;20:12;5:2;885:121:1;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;885:121:1;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;23:1:-1;8:100;33:3;30:1;27:10;8:100;;;99:1;94:3;90:11;84:18;80:1;75:3;71:11;64:39;52:2;49:1;45:10;40:15;;8:100;;;12:14;885:121:1;;;;;;;;;;;;;;;;;562:188;;8:9:-1;5:2;;;30:1;27;20:12;5:2;562:188:1;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;562:188:1;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;758:119;;8:9:-1;5:2;;;30:1;27;20:12;5:2;758:119:1;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;758:119:1;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;352:269:2;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;352:269:2;;;;;;;;;;21:11:-1;8;5:28;2:2;;;46:1;43;36:12;2:2;352:269:2;;35:9:-1;28:4;12:14;8:25;5:40;2:2;;;58:1;55;48:12;2:2;352:269:2;;;;;;100:9:-1;95:1;81:12;77:20;67:8;63:35;60:50;39:11;25:12;22:29;11:107;8:2;;;131:1;128;121:12;8:2;352:269:2;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;30:3:-1;22:6;14;1:33;99:1;93:3;85:6;81:16;74:27;137:4;133:9;126:4;121:3;117:14;113:30;106:37;;169:3;161:6;157:16;147:26;;352:269:2;;;;;;;;;;;;;;;;;21:11:-1;8;5:28;2:2;;;46:1;43;36:12;2:2;352:269:2;;35:9:-1;28:4;12:14;8:25;5:40;2:2;;;58:1;55;48:12;2:2;352:269:2;;;;;;100:9:-1;95:1;81:12;77:20;67:8;63:35;60:50;39:11;25:12;22:29;11:107;8:2;;;131:1;128;121:12;8:2;352:269:2;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;30:3:-1;22:6;14;1:33;99:1;93:3;85:6;81:16;74:27;137:4;133:9;126:4;121:3;117:14;113:30;106:37;;169:3;161:6;157:16;147:26;;352:269:2;;;;;;;;;;;;;;;:::i;:::-;;51:20:4;;8:9:-1;5:2;;;30:1;27;20:12;5:2;51:20:4;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;192:38:2;;8:9:-1;5:2;;;30:1;27;20:12;5:2;192:38:2;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;23:1:-1;8:100;33:3;30:1;27:10;8:100;;;99:1;94:3;90:11;84:18;80:1;75:3;71:11;64:39;52:2;49:1;45:10;40:15;;8:100;;;12:14;192:38:2;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;316:27;;8:9:-1;5:2;;;30:1;27;20:12;5:2;316:27:2;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;316:27:2;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;23:1:-1;8:100;33:3;30:1;27:10;8:100;;;99:1;94:3;90:11;84:18;80:1;75:3;71:11;64:39;52:2;49:1;45:10;40:15;;8:100;;;12:14;316:27:2;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;23:1:-1;8:100;33:3;30:1;27:10;8:100;;;99:1;94:3;90:11;84:18;80:1;75:3;71:11;64:39;52:2;49:1;45:10;40:15;;8:100;;;12:14;316:27:2;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;629:222;;8:9:-1;5:2;;;30:1;27;20:12;5:2;629:222:2;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;629:222:2;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;23:1:-1;8:100;33:3;30:1;27:10;8:100;;;99:1;94:3;90:11;84:18;80:1;75:3;71:11;64:39;52:2;49:1;45:10;40:15;;8:100;;;12:14;629:222:2;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;23:1:-1;8:100;33:3;30:1;27:10;8:100;;;99:1;94:3;90:11;84:18;80:1;75:3;71:11;64:39;52:2;49:1;45:10;40:15;;8:100;;;12:14;629:222:2;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;140:45;;;;;;;;;;;;;;;;;;;:::o;267:287:1:-;354:1;339:17;;:3;:17;;;;330:27;;;;;;408:1;376:34;;:10;:20;387:8;376:20;;;;;;;;;;;;;;;;;;;;;:34;;;368:43;;;;;;448:3;426:10;:20;437:8;426:20;;;;;;;;;;;;:25;;;;;;;;;;;;;;;;;;464:11;:16;476:3;464:16;;;;;;;;;;;;;;;486:8;464:31;;39:1:-1;33:3;27:10;23:18;57:10;52:3;45:23;79:10;72:17;;0:93;464:31:1;;;;;;;;;;;;;;;;;;;;;;531:3;511:33;;528:1;511:33;;;535:8;511:33;;;;;;;;;;;;;;;;;;267:287;;:::o;885:121::-;939:16;977:11;:19;989:6;977:19;;;;;;;;;;;;;;;970:26;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;885:121;;;:::o;562:188::-;617:7;638:13;654:10;:20;665:8;654:20;;;;;;;;;;;;;;;;;;;;;638:36;;712:1;695:19;;:5;:19;;;;687:28;;;;;;735:5;728:12;;;562:188;;;:::o;758:119::-;813:7;841:11;:19;853:6;841:19;;;;;;;;;;;;;;;:26;;;;834:33;;758:119;;;:::o;352:269:2:-;198:5:4;;;;;;;;;;;186:17;;:10;:17;;;178:26;;;;;;446:25:2;;:::i;:::-;474:40;;;;;;;;491:6;474:40;;;;506:6;474:40;;;446:68;;525:16;571:1;544:9;559;544:25;;39:1:-1;33:3;27:10;23:18;57:10;52:3;45:23;79:10;72:17;;0:93;544:25:2;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;:28;525:47;;583:30;589:10;601:11;583:5;:30::i;:::-;215:1:4;;352:269:2;;:::o;51:20:4:-;;;;;;;;;;;;;:::o;192:38:2:-;;;;;;;;;;;;;;;;;;;:::o;316:27::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o;629:222::-;688:19;709;740:21;;:::i;:::-;763:9;773:11;763:22;;;;;;;;;;;;;;;;;;740:45;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;803:5;:11;;;796:18;;832:5;:11;;;825:18;;629:222;;;;:::o;86:770::-;;;;;;;;;;;;;;;;;;;:::o;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;:::o;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o",
+  "source": "pragma solidity ^0.5.16;\r\n\r\nimport \"./ERC721Token.sol\";\r\nimport \"./Ownable.sol\";\r\n\r\n\r\ncontract GradientToken is ERC721Token,Ownable{\r\n\r\n    string public constant name = \"GradientToken\";\r\n    string public constant symbol = \"Grad\";\r\n\r\n    struct Gradient{\r\n        string outer;\r\n        string inner;\r\n    }\r\n\r\n    Gradient[] public gradients;\r\n\r\n    function mint(string memory _outer, string memory _inner) public payable onlyOwner {\r\n        Gradient memory _gradient = Gradient({outer: _outer, inner: _inner});\r\n        uint _gradientId = gradients.push(_gradient) -1;\r\n        _mint(msg.sender, _gradientId);\r\n    }\r\n\r\n    function getGradient(uint _gradientId) public view returns(string memory outer, string memory inner){\r\n        Gradient memory _grad =gradients[_gradientId];\r\n        outer =_grad.outer;\r\n        inner =_grad.inner;\r\n    }\r\n\r\n}",
+  "sourcePath": "D:\\Users\\cheta\\Desktop\\Dapps_RS\\ERC721\\token\\contracts\\GradientToken.sol",
+  "ast": {
+    "absolutePath": "project:/contracts/GradientToken.sol",
+    "exportedSymbols": {
+      "GradientToken": [
+        229
+      ]
+    },
+    "id": 230,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 150,
+        "literals": [
+          "solidity",
+          "^",
+          "0.5",
+          ".16"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:24:2"
+      },
+      {
+        "absolutePath": "project:/contracts/ERC721Token.sol",
+        "file": "./ERC721Token.sol",
+        "id": 151,
+        "nodeType": "ImportDirective",
+        "scope": 230,
+        "sourceUnit": 149,
+        "src": "28:27:2",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "absolutePath": "project:/contracts/Ownable.sol",
+        "file": "./Ownable.sol",
+        "id": 152,
+        "nodeType": "ImportDirective",
+        "scope": 230,
+        "sourceUnit": 288,
+        "src": "57:23:2",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "baseContracts": [
+          {
+            "arguments": null,
+            "baseName": {
+              "contractScope": null,
+              "id": 153,
+              "name": "ERC721Token",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 148,
+              "src": "112:11:2",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_ERC721Token_$148",
+                "typeString": "contract ERC721Token"
+              }
+            },
+            "id": 154,
+            "nodeType": "InheritanceSpecifier",
+            "src": "112:11:2"
+          },
+          {
+            "arguments": null,
+            "baseName": {
+              "contractScope": null,
+              "id": 155,
+              "name": "Ownable",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 287,
+              "src": "124:7:2",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_Ownable_$287",
+                "typeString": "contract Ownable"
+              }
+            },
+            "id": 156,
+            "nodeType": "InheritanceSpecifier",
+            "src": "124:7:2"
+          }
+        ],
+        "contractDependencies": [
+          32,
+          148,
+          287
+        ],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 229,
+        "linearizedBaseContracts": [
+          229,
+          287,
+          148,
+          32
+        ],
+        "name": "GradientToken",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "constant": true,
+            "id": 159,
+            "name": "name",
+            "nodeType": "VariableDeclaration",
+            "scope": 229,
+            "src": "140:45:2",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_string_memory",
+              "typeString": "string"
+            },
+            "typeName": {
+              "id": 157,
+              "name": "string",
+              "nodeType": "ElementaryTypeName",
+              "src": "140:6:2",
+              "typeDescriptions": {
+                "typeIdentifier": "t_string_storage_ptr",
+                "typeString": "string"
+              }
+            },
+            "value": {
+              "argumentTypes": null,
+              "hexValue": "4772616469656e74546f6b656e",
+              "id": 158,
+              "isConstant": false,
+              "isLValue": false,
+              "isPure": true,
+              "kind": "string",
+              "lValueRequested": false,
+              "nodeType": "Literal",
+              "src": "170:15:2",
+              "subdenomination": null,
+              "typeDescriptions": {
+                "typeIdentifier": "t_stringliteral_ab1c5fa0cb16f450ae6507a69730633ed62eeec782c2cdc9ae674da760ba02ee",
+                "typeString": "literal_string \"GradientToken\""
+              },
+              "value": "GradientToken"
+            },
+            "visibility": "public"
+          },
+          {
+            "constant": true,
+            "id": 162,
+            "name": "symbol",
+            "nodeType": "VariableDeclaration",
+            "scope": 229,
+            "src": "192:38:2",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_string_memory",
+              "typeString": "string"
+            },
+            "typeName": {
+              "id": 160,
+              "name": "string",
+              "nodeType": "ElementaryTypeName",
+              "src": "192:6:2",
+              "typeDescriptions": {
+                "typeIdentifier": "t_string_storage_ptr",
+                "typeString": "string"
+              }
+            },
+            "value": {
+              "argumentTypes": null,
+              "hexValue": "47726164",
+              "id": 161,
+              "isConstant": false,
+              "isLValue": false,
+              "isPure": true,
+              "kind": "string",
+              "lValueRequested": false,
+              "nodeType": "Literal",
+              "src": "224:6:2",
+              "subdenomination": null,
+              "typeDescriptions": {
+                "typeIdentifier": "t_stringliteral_2cde2f25058704c4e585654e2194c22b2f6db880682db4a4bbba3a6d1e9336d9",
+                "typeString": "literal_string \"Grad\""
+              },
+              "value": "Grad"
+            },
+            "visibility": "public"
+          },
+          {
+            "canonicalName": "GradientToken.Gradient",
+            "id": 167,
+            "members": [
+              {
+                "constant": false,
+                "id": 164,
+                "name": "outer",
+                "nodeType": "VariableDeclaration",
+                "scope": 167,
+                "src": "265:12:2",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_string_storage_ptr",
+                  "typeString": "string"
+                },
+                "typeName": {
+                  "id": 163,
+                  "name": "string",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "265:6:2",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_storage_ptr",
+                    "typeString": "string"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 166,
+                "name": "inner",
+                "nodeType": "VariableDeclaration",
+                "scope": 167,
+                "src": "288:12:2",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_string_storage_ptr",
+                  "typeString": "string"
+                },
+                "typeName": {
+                  "id": 165,
+                  "name": "string",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "288:6:2",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_storage_ptr",
+                    "typeString": "string"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              }
+            ],
+            "name": "Gradient",
+            "nodeType": "StructDefinition",
+            "scope": 229,
+            "src": "239:69:2",
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "id": 170,
+            "name": "gradients",
+            "nodeType": "VariableDeclaration",
+            "scope": 229,
+            "src": "316:27:2",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_array$_t_struct$_Gradient_$167_storage_$dyn_storage",
+              "typeString": "struct GradientToken.Gradient[]"
+            },
+            "typeName": {
+              "baseType": {
+                "contractScope": null,
+                "id": 168,
+                "name": "Gradient",
+                "nodeType": "UserDefinedTypeName",
+                "referencedDeclaration": 167,
+                "src": "316:8:2",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_struct$_Gradient_$167_storage_ptr",
+                  "typeString": "struct GradientToken.Gradient"
+                }
+              },
+              "id": 169,
+              "length": null,
+              "nodeType": "ArrayTypeName",
+              "src": "316:10:2",
+              "typeDescriptions": {
+                "typeIdentifier": "t_array$_t_struct$_Gradient_$167_storage_$dyn_storage_ptr",
+                "typeString": "struct GradientToken.Gradient[]"
+              }
+            },
+            "value": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 201,
+              "nodeType": "Block",
+              "src": "435:186:2",
+              "statements": [
+                {
+                  "assignments": [
+                    180
+                  ],
+                  "declarations": [
+                    {
+                      "constant": false,
+                      "id": 180,
+                      "name": "_gradient",
+                      "nodeType": "VariableDeclaration",
+                      "scope": 201,
+                      "src": "446:25:2",
+                      "stateVariable": false,
+                      "storageLocation": "memory",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_Gradient_$167_memory_ptr",
+                        "typeString": "struct GradientToken.Gradient"
+                      },
+                      "typeName": {
+                        "contractScope": null,
+                        "id": 179,
+                        "name": "Gradient",
+                        "nodeType": "UserDefinedTypeName",
+                        "referencedDeclaration": 167,
+                        "src": "446:8:2",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_Gradient_$167_storage_ptr",
+                          "typeString": "struct GradientToken.Gradient"
+                        }
+                      },
+                      "value": null,
+                      "visibility": "internal"
+                    }
+                  ],
+                  "id": 185,
+                  "initialValue": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "id": 182,
+                        "name": "_outer",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 172,
+                        "src": "491:6:2",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_string_memory_ptr",
+                          "typeString": "string memory"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "id": 183,
+                        "name": "_inner",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 174,
+                        "src": "506:6:2",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_string_memory_ptr",
+                          "typeString": "string memory"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_string_memory_ptr",
+                          "typeString": "string memory"
+                        },
+                        {
+                          "typeIdentifier": "t_string_memory_ptr",
+                          "typeString": "string memory"
+                        }
+                      ],
+                      "id": 181,
+                      "name": "Gradient",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 167,
+                      "src": "474:8:2",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_type$_t_struct$_Gradient_$167_storage_ptr_$",
+                        "typeString": "type(struct GradientToken.Gradient storage pointer)"
+                      }
+                    },
+                    "id": 184,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "structConstructorCall",
+                    "lValueRequested": false,
+                    "names": [
+                      "outer",
+                      "inner"
+                    ],
+                    "nodeType": "FunctionCall",
+                    "src": "474:40:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_Gradient_$167_memory",
+                      "typeString": "struct GradientToken.Gradient memory"
+                    }
+                  },
+                  "nodeType": "VariableDeclarationStatement",
+                  "src": "446:68:2"
+                },
+                {
+                  "assignments": [
+                    187
+                  ],
+                  "declarations": [
+                    {
+                      "constant": false,
+                      "id": 187,
+                      "name": "_gradientId",
+                      "nodeType": "VariableDeclaration",
+                      "scope": 201,
+                      "src": "525:16:2",
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      },
+                      "typeName": {
+                        "id": 186,
+                        "name": "uint",
+                        "nodeType": "ElementaryTypeName",
+                        "src": "525:4:2",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      },
+                      "value": null,
+                      "visibility": "internal"
+                    }
+                  ],
+                  "id": 194,
+                  "initialValue": {
+                    "argumentTypes": null,
+                    "commonType": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    },
+                    "id": 193,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftExpression": {
+                      "argumentTypes": null,
+                      "arguments": [
+                        {
+                          "argumentTypes": null,
+                          "id": 190,
+                          "name": "_gradient",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 180,
+                          "src": "559:9:2",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_struct$_Gradient_$167_memory_ptr",
+                            "typeString": "struct GradientToken.Gradient memory"
+                          }
+                        }
+                      ],
+                      "expression": {
+                        "argumentTypes": [
+                          {
+                            "typeIdentifier": "t_struct$_Gradient_$167_memory_ptr",
+                            "typeString": "struct GradientToken.Gradient memory"
+                          }
+                        ],
+                        "expression": {
+                          "argumentTypes": null,
+                          "id": 188,
+                          "name": "gradients",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 170,
+                          "src": "544:9:2",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_array$_t_struct$_Gradient_$167_storage_$dyn_storage",
+                            "typeString": "struct GradientToken.Gradient storage ref[] storage ref"
+                          }
+                        },
+                        "id": 189,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberName": "push",
+                        "nodeType": "MemberAccess",
+                        "referencedDeclaration": null,
+                        "src": "544:14:2",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_function_arraypush_nonpayable$_t_struct$_Gradient_$167_storage_$returns$_t_uint256_$",
+                          "typeString": "function (struct GradientToken.Gradient storage ref) returns (uint256)"
+                        }
+                      },
+                      "id": 191,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "kind": "functionCall",
+                      "lValueRequested": false,
+                      "names": [],
+                      "nodeType": "FunctionCall",
+                      "src": "544:25:2",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "nodeType": "BinaryOperation",
+                    "operator": "-",
+                    "rightExpression": {
+                      "argumentTypes": null,
+                      "hexValue": "31",
+                      "id": 192,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "kind": "number",
+                      "lValueRequested": false,
+                      "nodeType": "Literal",
+                      "src": "571:1:2",
+                      "subdenomination": null,
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_rational_1_by_1",
+                        "typeString": "int_const 1"
+                      },
+                      "value": "1"
+                    },
+                    "src": "544:28:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "nodeType": "VariableDeclarationStatement",
+                  "src": "525:47:2"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "expression": {
+                          "argumentTypes": null,
+                          "id": 196,
+                          "name": "msg",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 489,
+                          "src": "589:3:2",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_magic_message",
+                            "typeString": "msg"
+                          }
+                        },
+                        "id": 197,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberName": "sender",
+                        "nodeType": "MemberAccess",
+                        "referencedDeclaration": null,
+                        "src": "589:10:2",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address_payable",
+                          "typeString": "address payable"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "id": 198,
+                        "name": "_gradientId",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 187,
+                        "src": "601:11:2",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_address_payable",
+                          "typeString": "address payable"
+                        },
+                        {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      ],
+                      "id": 195,
+                      "name": "_mint",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 97,
+                      "src": "583:5:2",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_internal_nonpayable$_t_address_$_t_uint256_$returns$__$",
+                        "typeString": "function (address,uint256)"
+                      }
+                    },
+                    "id": 199,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "583:30:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 200,
+                  "nodeType": "ExpressionStatement",
+                  "src": "583:30:2"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 202,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [
+              {
+                "arguments": null,
+                "id": 177,
+                "modifierName": {
+                  "argumentTypes": null,
+                  "id": 176,
+                  "name": "onlyOwner",
+                  "nodeType": "Identifier",
+                  "overloadedDeclarations": [],
+                  "referencedDeclaration": 286,
+                  "src": "425:9:2",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_modifier$__$",
+                    "typeString": "modifier ()"
+                  }
+                },
+                "nodeType": "ModifierInvocation",
+                "src": "425:9:2"
+              }
+            ],
+            "name": "mint",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 175,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 172,
+                  "name": "_outer",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 202,
+                  "src": "366:20:2",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 171,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "366:6:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 174,
+                  "name": "_inner",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 202,
+                  "src": "388:20:2",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 173,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "388:6:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "365:44:2"
+            },
+            "returnParameters": {
+              "id": 178,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "435:0:2"
+            },
+            "scope": 229,
+            "src": "352:269:2",
+            "stateMutability": "payable",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 227,
+              "nodeType": "Block",
+              "src": "729:122:2",
+              "statements": [
+                {
+                  "assignments": [
+                    212
+                  ],
+                  "declarations": [
+                    {
+                      "constant": false,
+                      "id": 212,
+                      "name": "_grad",
+                      "nodeType": "VariableDeclaration",
+                      "scope": 227,
+                      "src": "740:21:2",
+                      "stateVariable": false,
+                      "storageLocation": "memory",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_Gradient_$167_memory_ptr",
+                        "typeString": "struct GradientToken.Gradient"
+                      },
+                      "typeName": {
+                        "contractScope": null,
+                        "id": 211,
+                        "name": "Gradient",
+                        "nodeType": "UserDefinedTypeName",
+                        "referencedDeclaration": 167,
+                        "src": "740:8:2",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_Gradient_$167_storage_ptr",
+                          "typeString": "struct GradientToken.Gradient"
+                        }
+                      },
+                      "value": null,
+                      "visibility": "internal"
+                    }
+                  ],
+                  "id": 216,
+                  "initialValue": {
+                    "argumentTypes": null,
+                    "baseExpression": {
+                      "argumentTypes": null,
+                      "id": 213,
+                      "name": "gradients",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 170,
+                      "src": "763:9:2",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_array$_t_struct$_Gradient_$167_storage_$dyn_storage",
+                        "typeString": "struct GradientToken.Gradient storage ref[] storage ref"
+                      }
+                    },
+                    "id": 215,
+                    "indexExpression": {
+                      "argumentTypes": null,
+                      "id": 214,
+                      "name": "_gradientId",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 204,
+                      "src": "773:11:2",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "isConstant": false,
+                    "isLValue": true,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "nodeType": "IndexAccess",
+                    "src": "763:22:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_Gradient_$167_storage",
+                      "typeString": "struct GradientToken.Gradient storage ref"
+                    }
+                  },
+                  "nodeType": "VariableDeclarationStatement",
+                  "src": "740:45:2"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 220,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "id": 217,
+                      "name": "outer",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 207,
+                      "src": "796:5:2",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_string_memory_ptr",
+                        "typeString": "string memory"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 218,
+                        "name": "_grad",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 212,
+                        "src": "803:5:2",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_Gradient_$167_memory_ptr",
+                          "typeString": "struct GradientToken.Gradient memory"
+                        }
+                      },
+                      "id": 219,
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "outer",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 164,
+                      "src": "803:11:2",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_string_memory",
+                        "typeString": "string memory"
+                      }
+                    },
+                    "src": "796:18:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_memory_ptr",
+                      "typeString": "string memory"
+                    }
+                  },
+                  "id": 221,
+                  "nodeType": "ExpressionStatement",
+                  "src": "796:18:2"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 225,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "id": 222,
+                      "name": "inner",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 209,
+                      "src": "825:5:2",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_string_memory_ptr",
+                        "typeString": "string memory"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 223,
+                        "name": "_grad",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 212,
+                        "src": "832:5:2",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_Gradient_$167_memory_ptr",
+                          "typeString": "struct GradientToken.Gradient memory"
+                        }
+                      },
+                      "id": 224,
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "inner",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 166,
+                      "src": "832:11:2",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_string_memory",
+                        "typeString": "string memory"
+                      }
+                    },
+                    "src": "825:18:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_memory_ptr",
+                      "typeString": "string memory"
+                    }
+                  },
+                  "id": 226,
+                  "nodeType": "ExpressionStatement",
+                  "src": "825:18:2"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 228,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getGradient",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 205,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 204,
+                  "name": "_gradientId",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 228,
+                  "src": "650:16:2",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 203,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "650:4:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "649:18:2"
+            },
+            "returnParameters": {
+              "id": 210,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 207,
+                  "name": "outer",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 228,
+                  "src": "688:19:2",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 206,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "688:6:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 209,
+                  "name": "inner",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 228,
+                  "src": "709:19:2",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 208,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "709:6:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "687:42:2"
+            },
+            "scope": 229,
+            "src": "629:222:2",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "public"
+          }
+        ],
+        "scope": 230,
+        "src": "86:770:2"
+      }
+    ],
+    "src": "0:856:2"
+  },
+  "legacyAST": {
+    "attributes": {
+      "absolutePath": "project:/contracts/GradientToken.sol",
+      "exportedSymbols": {
+        "GradientToken": [
+          229
+        ]
+      }
+    },
+    "children": [
+      {
+        "attributes": {
+          "literals": [
+            "solidity",
+            "^",
+            "0.5",
+            ".16"
+          ]
+        },
+        "id": 150,
+        "name": "PragmaDirective",
+        "src": "0:24:2"
+      },
+      {
+        "attributes": {
+          "SourceUnit": 149,
+          "absolutePath": "project:/contracts/ERC721Token.sol",
+          "file": "./ERC721Token.sol",
+          "scope": 230,
+          "symbolAliases": [
+            null
+          ],
+          "unitAlias": ""
+        },
+        "id": 151,
+        "name": "ImportDirective",
+        "src": "28:27:2"
+      },
+      {
+        "attributes": {
+          "SourceUnit": 288,
+          "absolutePath": "project:/contracts/Ownable.sol",
+          "file": "./Ownable.sol",
+          "scope": 230,
+          "symbolAliases": [
+            null
+          ],
+          "unitAlias": ""
+        },
+        "id": 152,
+        "name": "ImportDirective",
+        "src": "57:23:2"
+      },
+      {
+        "attributes": {
+          "contractDependencies": [
+            32,
+            148,
+            287
+          ],
+          "contractKind": "contract",
+          "documentation": null,
+          "fullyImplemented": true,
+          "linearizedBaseContracts": [
+            229,
+            287,
+            148,
+            32
+          ],
+          "name": "GradientToken",
+          "scope": 230
+        },
+        "children": [
+          {
+            "attributes": {
+              "arguments": null
+            },
+            "children": [
+              {
+                "attributes": {
+                  "contractScope": null,
+                  "name": "ERC721Token",
+                  "referencedDeclaration": 148,
+                  "type": "contract ERC721Token"
+                },
+                "id": 153,
+                "name": "UserDefinedTypeName",
+                "src": "112:11:2"
+              }
+            ],
+            "id": 154,
+            "name": "InheritanceSpecifier",
+            "src": "112:11:2"
+          },
+          {
+            "attributes": {
+              "arguments": null
+            },
+            "children": [
+              {
+                "attributes": {
+                  "contractScope": null,
+                  "name": "Ownable",
+                  "referencedDeclaration": 287,
+                  "type": "contract Ownable"
+                },
+                "id": 155,
+                "name": "UserDefinedTypeName",
+                "src": "124:7:2"
+              }
+            ],
+            "id": 156,
+            "name": "InheritanceSpecifier",
+            "src": "124:7:2"
+          },
+          {
+            "attributes": {
+              "constant": true,
+              "name": "name",
+              "scope": 229,
+              "stateVariable": true,
+              "storageLocation": "default",
+              "type": "string",
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "name": "string",
+                  "type": "string"
+                },
+                "id": 157,
+                "name": "ElementaryTypeName",
+                "src": "140:6:2"
+              },
+              {
+                "attributes": {
+                  "argumentTypes": null,
+                  "hexvalue": "4772616469656e74546f6b656e",
+                  "isConstant": false,
+                  "isLValue": false,
+                  "isPure": true,
+                  "lValueRequested": false,
+                  "subdenomination": null,
+                  "token": "string",
+                  "type": "literal_string \"GradientToken\"",
+                  "value": "GradientToken"
+                },
+                "id": 158,
+                "name": "Literal",
+                "src": "170:15:2"
+              }
+            ],
+            "id": 159,
+            "name": "VariableDeclaration",
+            "src": "140:45:2"
+          },
+          {
+            "attributes": {
+              "constant": true,
+              "name": "symbol",
+              "scope": 229,
+              "stateVariable": true,
+              "storageLocation": "default",
+              "type": "string",
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "name": "string",
+                  "type": "string"
+                },
+                "id": 160,
+                "name": "ElementaryTypeName",
+                "src": "192:6:2"
+              },
+              {
+                "attributes": {
+                  "argumentTypes": null,
+                  "hexvalue": "47726164",
+                  "isConstant": false,
+                  "isLValue": false,
+                  "isPure": true,
+                  "lValueRequested": false,
+                  "subdenomination": null,
+                  "token": "string",
+                  "type": "literal_string \"Grad\"",
+                  "value": "Grad"
+                },
+                "id": 161,
+                "name": "Literal",
+                "src": "224:6:2"
+              }
+            ],
+            "id": 162,
+            "name": "VariableDeclaration",
+            "src": "192:38:2"
+          },
+          {
+            "attributes": {
+              "canonicalName": "GradientToken.Gradient",
+              "name": "Gradient",
+              "scope": 229,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "constant": false,
+                  "name": "outer",
+                  "scope": 167,
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "type": "string",
+                  "value": null,
+                  "visibility": "internal"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "string",
+                      "type": "string"
+                    },
+                    "id": 163,
+                    "name": "ElementaryTypeName",
+                    "src": "265:6:2"
+                  }
+                ],
+                "id": 164,
+                "name": "VariableDeclaration",
+                "src": "265:12:2"
+              },
+              {
+                "attributes": {
+                  "constant": false,
+                  "name": "inner",
+                  "scope": 167,
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "type": "string",
+                  "value": null,
+                  "visibility": "internal"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "string",
+                      "type": "string"
+                    },
+                    "id": 165,
+                    "name": "ElementaryTypeName",
+                    "src": "288:6:2"
+                  }
+                ],
+                "id": 166,
+                "name": "VariableDeclaration",
+                "src": "288:12:2"
+              }
+            ],
+            "id": 167,
+            "name": "StructDefinition",
+            "src": "239:69:2"
+          },
+          {
+            "attributes": {
+              "constant": false,
+              "name": "gradients",
+              "scope": 229,
+              "stateVariable": true,
+              "storageLocation": "default",
+              "type": "struct GradientToken.Gradient[]",
+              "value": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "length": null,
+                  "type": "struct GradientToken.Gradient[]"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "contractScope": null,
+                      "name": "Gradient",
+                      "referencedDeclaration": 167,
+                      "type": "struct GradientToken.Gradient"
+                    },
+                    "id": 168,
+                    "name": "UserDefinedTypeName",
+                    "src": "316:8:2"
+                  }
+                ],
+                "id": 169,
+                "name": "ArrayTypeName",
+                "src": "316:10:2"
+              }
+            ],
+            "id": 170,
+            "name": "VariableDeclaration",
+            "src": "316:27:2"
+          },
+          {
+            "attributes": {
+              "documentation": null,
+              "implemented": true,
+              "isConstructor": false,
+              "kind": "function",
+              "name": "mint",
+              "scope": 229,
+              "stateMutability": "payable",
+              "superFunction": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "_outer",
+                      "scope": 202,
+                      "stateVariable": false,
+                      "storageLocation": "memory",
+                      "type": "string",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "string",
+                          "type": "string"
+                        },
+                        "id": 171,
+                        "name": "ElementaryTypeName",
+                        "src": "366:6:2"
+                      }
+                    ],
+                    "id": 172,
+                    "name": "VariableDeclaration",
+                    "src": "366:20:2"
+                  },
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "_inner",
+                      "scope": 202,
+                      "stateVariable": false,
+                      "storageLocation": "memory",
+                      "type": "string",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "string",
+                          "type": "string"
+                        },
+                        "id": 173,
+                        "name": "ElementaryTypeName",
+                        "src": "388:6:2"
+                      }
+                    ],
+                    "id": 174,
+                    "name": "VariableDeclaration",
+                    "src": "388:20:2"
+                  }
+                ],
+                "id": 175,
+                "name": "ParameterList",
+                "src": "365:44:2"
+              },
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 178,
+                "name": "ParameterList",
+                "src": "435:0:2"
+              },
+              {
+                "attributes": {
+                  "arguments": null
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "argumentTypes": null,
+                      "overloadedDeclarations": [
+                        null
+                      ],
+                      "referencedDeclaration": 286,
+                      "type": "modifier ()",
+                      "value": "onlyOwner"
+                    },
+                    "id": 176,
+                    "name": "Identifier",
+                    "src": "425:9:2"
+                  }
+                ],
+                "id": 177,
+                "name": "ModifierInvocation",
+                "src": "425:9:2"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "assignments": [
+                        180
+                      ]
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "constant": false,
+                          "name": "_gradient",
+                          "scope": 201,
+                          "stateVariable": false,
+                          "storageLocation": "memory",
+                          "type": "struct GradientToken.Gradient",
+                          "value": null,
+                          "visibility": "internal"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "contractScope": null,
+                              "name": "Gradient",
+                              "referencedDeclaration": 167,
+                              "type": "struct GradientToken.Gradient"
+                            },
+                            "id": 179,
+                            "name": "UserDefinedTypeName",
+                            "src": "446:8:2"
+                          }
+                        ],
+                        "id": 180,
+                        "name": "VariableDeclaration",
+                        "src": "446:25:2"
+                      },
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "isStructConstructorCall": true,
+                          "lValueRequested": false,
+                          "names": [
+                            "outer",
+                            "inner"
+                          ],
+                          "type": "struct GradientToken.Gradient memory",
+                          "type_conversion": false
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": [
+                                {
+                                  "typeIdentifier": "t_string_memory_ptr",
+                                  "typeString": "string memory"
+                                },
+                                {
+                                  "typeIdentifier": "t_string_memory_ptr",
+                                  "typeString": "string memory"
+                                }
+                              ],
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 167,
+                              "type": "type(struct GradientToken.Gradient storage pointer)",
+                              "value": "Gradient"
+                            },
+                            "id": 181,
+                            "name": "Identifier",
+                            "src": "474:8:2"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 172,
+                              "type": "string memory",
+                              "value": "_outer"
+                            },
+                            "id": 182,
+                            "name": "Identifier",
+                            "src": "491:6:2"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 174,
+                              "type": "string memory",
+                              "value": "_inner"
+                            },
+                            "id": 183,
+                            "name": "Identifier",
+                            "src": "506:6:2"
+                          }
+                        ],
+                        "id": 184,
+                        "name": "FunctionCall",
+                        "src": "474:40:2"
+                      }
+                    ],
+                    "id": 185,
+                    "name": "VariableDeclarationStatement",
+                    "src": "446:68:2"
+                  },
+                  {
+                    "attributes": {
+                      "assignments": [
+                        187
+                      ]
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "constant": false,
+                          "name": "_gradientId",
+                          "scope": 201,
+                          "stateVariable": false,
+                          "storageLocation": "default",
+                          "type": "uint256",
+                          "value": null,
+                          "visibility": "internal"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "name": "uint",
+                              "type": "uint256"
+                            },
+                            "id": 186,
+                            "name": "ElementaryTypeName",
+                            "src": "525:4:2"
+                          }
+                        ],
+                        "id": 187,
+                        "name": "VariableDeclaration",
+                        "src": "525:16:2"
+                      },
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "commonType": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          },
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "operator": "-",
+                          "type": "uint256"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "isStructConstructorCall": false,
+                              "lValueRequested": false,
+                              "names": [
+                                null
+                              ],
+                              "type": "uint256",
+                              "type_conversion": false
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": [
+                                    {
+                                      "typeIdentifier": "t_struct$_Gradient_$167_memory_ptr",
+                                      "typeString": "struct GradientToken.Gradient memory"
+                                    }
+                                  ],
+                                  "isConstant": false,
+                                  "isLValue": false,
+                                  "isPure": false,
+                                  "lValueRequested": false,
+                                  "member_name": "push",
+                                  "referencedDeclaration": null,
+                                  "type": "function (struct GradientToken.Gradient storage ref) returns (uint256)"
+                                },
+                                "children": [
+                                  {
+                                    "attributes": {
+                                      "argumentTypes": null,
+                                      "overloadedDeclarations": [
+                                        null
+                                      ],
+                                      "referencedDeclaration": 170,
+                                      "type": "struct GradientToken.Gradient storage ref[] storage ref",
+                                      "value": "gradients"
+                                    },
+                                    "id": 188,
+                                    "name": "Identifier",
+                                    "src": "544:9:2"
+                                  }
+                                ],
+                                "id": 189,
+                                "name": "MemberAccess",
+                                "src": "544:14:2"
+                              },
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 180,
+                                  "type": "struct GradientToken.Gradient memory",
+                                  "value": "_gradient"
+                                },
+                                "id": 190,
+                                "name": "Identifier",
+                                "src": "559:9:2"
+                              }
+                            ],
+                            "id": 191,
+                            "name": "FunctionCall",
+                            "src": "544:25:2"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "hexvalue": "31",
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": true,
+                              "lValueRequested": false,
+                              "subdenomination": null,
+                              "token": "number",
+                              "type": "int_const 1",
+                              "value": "1"
+                            },
+                            "id": 192,
+                            "name": "Literal",
+                            "src": "571:1:2"
+                          }
+                        ],
+                        "id": 193,
+                        "name": "BinaryOperation",
+                        "src": "544:28:2"
+                      }
+                    ],
+                    "id": 194,
+                    "name": "VariableDeclarationStatement",
+                    "src": "525:47:2"
+                  },
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "isStructConstructorCall": false,
+                          "lValueRequested": false,
+                          "names": [
+                            null
+                          ],
+                          "type": "tuple()",
+                          "type_conversion": false
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": [
+                                {
+                                  "typeIdentifier": "t_address_payable",
+                                  "typeString": "address payable"
+                                },
+                                {
+                                  "typeIdentifier": "t_uint256",
+                                  "typeString": "uint256"
+                                }
+                              ],
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 97,
+                              "type": "function (address,uint256)",
+                              "value": "_mint"
+                            },
+                            "id": 195,
+                            "name": "Identifier",
+                            "src": "583:5:2"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "member_name": "sender",
+                              "referencedDeclaration": null,
+                              "type": "address payable"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 489,
+                                  "type": "msg",
+                                  "value": "msg"
+                                },
+                                "id": 196,
+                                "name": "Identifier",
+                                "src": "589:3:2"
+                              }
+                            ],
+                            "id": 197,
+                            "name": "MemberAccess",
+                            "src": "589:10:2"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 187,
+                              "type": "uint256",
+                              "value": "_gradientId"
+                            },
+                            "id": 198,
+                            "name": "Identifier",
+                            "src": "601:11:2"
+                          }
+                        ],
+                        "id": 199,
+                        "name": "FunctionCall",
+                        "src": "583:30:2"
+                      }
+                    ],
+                    "id": 200,
+                    "name": "ExpressionStatement",
+                    "src": "583:30:2"
+                  }
+                ],
+                "id": 201,
+                "name": "Block",
+                "src": "435:186:2"
+              }
+            ],
+            "id": 202,
+            "name": "FunctionDefinition",
+            "src": "352:269:2"
+          },
+          {
+            "attributes": {
+              "documentation": null,
+              "implemented": true,
+              "isConstructor": false,
+              "kind": "function",
+              "modifiers": [
+                null
+              ],
+              "name": "getGradient",
+              "scope": 229,
+              "stateMutability": "view",
+              "superFunction": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "_gradientId",
+                      "scope": 228,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "uint256",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "uint",
+                          "type": "uint256"
+                        },
+                        "id": 203,
+                        "name": "ElementaryTypeName",
+                        "src": "650:4:2"
+                      }
+                    ],
+                    "id": 204,
+                    "name": "VariableDeclaration",
+                    "src": "650:16:2"
+                  }
+                ],
+                "id": 205,
+                "name": "ParameterList",
+                "src": "649:18:2"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "outer",
+                      "scope": 228,
+                      "stateVariable": false,
+                      "storageLocation": "memory",
+                      "type": "string",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "string",
+                          "type": "string"
+                        },
+                        "id": 206,
+                        "name": "ElementaryTypeName",
+                        "src": "688:6:2"
+                      }
+                    ],
+                    "id": 207,
+                    "name": "VariableDeclaration",
+                    "src": "688:19:2"
+                  },
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "inner",
+                      "scope": 228,
+                      "stateVariable": false,
+                      "storageLocation": "memory",
+                      "type": "string",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "string",
+                          "type": "string"
+                        },
+                        "id": 208,
+                        "name": "ElementaryTypeName",
+                        "src": "709:6:2"
+                      }
+                    ],
+                    "id": 209,
+                    "name": "VariableDeclaration",
+                    "src": "709:19:2"
+                  }
+                ],
+                "id": 210,
+                "name": "ParameterList",
+                "src": "687:42:2"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "assignments": [
+                        212
+                      ]
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "constant": false,
+                          "name": "_grad",
+                          "scope": 227,
+                          "stateVariable": false,
+                          "storageLocation": "memory",
+                          "type": "struct GradientToken.Gradient",
+                          "value": null,
+                          "visibility": "internal"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "contractScope": null,
+                              "name": "Gradient",
+                              "referencedDeclaration": 167,
+                              "type": "struct GradientToken.Gradient"
+                            },
+                            "id": 211,
+                            "name": "UserDefinedTypeName",
+                            "src": "740:8:2"
+                          }
+                        ],
+                        "id": 212,
+                        "name": "VariableDeclaration",
+                        "src": "740:21:2"
+                      },
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": true,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "type": "struct GradientToken.Gradient storage ref"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 170,
+                              "type": "struct GradientToken.Gradient storage ref[] storage ref",
+                              "value": "gradients"
+                            },
+                            "id": 213,
+                            "name": "Identifier",
+                            "src": "763:9:2"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 204,
+                              "type": "uint256",
+                              "value": "_gradientId"
+                            },
+                            "id": 214,
+                            "name": "Identifier",
+                            "src": "773:11:2"
+                          }
+                        ],
+                        "id": 215,
+                        "name": "IndexAccess",
+                        "src": "763:22:2"
+                      }
+                    ],
+                    "id": 216,
+                    "name": "VariableDeclarationStatement",
+                    "src": "740:45:2"
+                  },
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "operator": "=",
+                          "type": "string memory"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 207,
+                              "type": "string memory",
+                              "value": "outer"
+                            },
+                            "id": 217,
+                            "name": "Identifier",
+                            "src": "796:5:2"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "isConstant": false,
+                              "isLValue": true,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "member_name": "outer",
+                              "referencedDeclaration": 164,
+                              "type": "string memory"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 212,
+                                  "type": "struct GradientToken.Gradient memory",
+                                  "value": "_grad"
+                                },
+                                "id": 218,
+                                "name": "Identifier",
+                                "src": "803:5:2"
+                              }
+                            ],
+                            "id": 219,
+                            "name": "MemberAccess",
+                            "src": "803:11:2"
+                          }
+                        ],
+                        "id": 220,
+                        "name": "Assignment",
+                        "src": "796:18:2"
+                      }
+                    ],
+                    "id": 221,
+                    "name": "ExpressionStatement",
+                    "src": "796:18:2"
+                  },
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "operator": "=",
+                          "type": "string memory"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 209,
+                              "type": "string memory",
+                              "value": "inner"
+                            },
+                            "id": 222,
+                            "name": "Identifier",
+                            "src": "825:5:2"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "isConstant": false,
+                              "isLValue": true,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "member_name": "inner",
+                              "referencedDeclaration": 166,
+                              "type": "string memory"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 212,
+                                  "type": "struct GradientToken.Gradient memory",
+                                  "value": "_grad"
+                                },
+                                "id": 223,
+                                "name": "Identifier",
+                                "src": "832:5:2"
+                              }
+                            ],
+                            "id": 224,
+                            "name": "MemberAccess",
+                            "src": "832:11:2"
+                          }
+                        ],
+                        "id": 225,
+                        "name": "Assignment",
+                        "src": "825:18:2"
+                      }
+                    ],
+                    "id": 226,
+                    "name": "ExpressionStatement",
+                    "src": "825:18:2"
+                  }
+                ],
+                "id": 227,
+                "name": "Block",
+                "src": "729:122:2"
+              }
+            ],
+            "id": 228,
+            "name": "FunctionDefinition",
+            "src": "629:222:2"
+          }
+        ],
+        "id": 229,
+        "name": "ContractDefinition",
+        "src": "86:770:2"
+      }
+    ],
+    "id": 230,
+    "name": "SourceUnit",
+    "src": "0:856:2"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.5.16+commit.9c3226ce.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.4.2",
+  "updatedAt": "2022-01-25T20:11:21.155Z",
+  "devdoc": {
+    "methods": {}
+  },
+  "userdoc": {
+    "methods": {}
+  }
+}
